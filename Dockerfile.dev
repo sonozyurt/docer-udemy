@@ -1,0 +1,10 @@
+From golang:alpine
+
+workdir "usr/src/app"
+
+copy ./go.mod ./go.sum ./
+run go mod download && go mod verify
+
+copy . .
+
+cmd ["sh"]
