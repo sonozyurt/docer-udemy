@@ -7,7 +7,14 @@ run go mod download && go mod verify
 
 copy . .
 
-run go build -v -o "/usr/src/app/build" ./...
+run GOOS=linux go build  -v -o /app 
 
-from nginx 
-copy --from=builder /usr/src/app/build /usr/share/nginx/html
+
+from alpine:latest as deployment
+
+workdir /usr/local/bin/myapp
+copy --from=builder /app /usr/local/bin/myapp/app
+copy ./templates ./templates
+
+cmd ["./app"]
+

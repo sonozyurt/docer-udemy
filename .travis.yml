@@ -7,3 +7,16 @@ before-install:
 
 script:
   - docker run cookiestest go test
+
+deploy:
+  provider: elasticbeanstalk
+  region: "eu-central-1"
+  app: "Docker-udemy"
+  env: "Docker-udemy-env"
+  bucket-name: "elasticbeanstalk-eu-central-1-851258710947"
+  bucket-path: "Docker-udemy"
+  on:
+    branch: master
+
+  access_key_id: $AWS_ACCESS_KEY
+  secret_access_key: "$AWS_SECRET_KEY"
