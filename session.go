@@ -5,6 +5,7 @@ import (
 )
 
 func getUser(req *http.Request) user {
+	_ = add(1, 2)
 	var u user
 	cookie, err := req.Cookie("session")
 	if err != nil {
@@ -26,4 +27,7 @@ func alreadyLoggedIn(req *http.Request) bool {
 	_, ok := dbUsers[session.un]
 	return ok
 
+}
+func add(x int, y int) int {
+	return x + y
 }

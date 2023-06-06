@@ -7,4 +7,3 @@ run go mod download && go mod verify
 
 copy . .
 
-cmd ["sh"]
