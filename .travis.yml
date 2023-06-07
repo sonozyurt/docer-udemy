@@ -11,10 +11,10 @@ script:
 deploy:
   provider: elasticbeanstalk
   region: "eu-central-1"
-  app: "Docker-udemy"
-  env: "Docker-udemy-env"
+  app: "docker-goweb"
+  env: "docker-goweb-env"
   bucket-name: "elasticbeanstalk-eu-central-1-851258710947"
-  bucket-path: "Docker-udemy"
+  bucket-path: "docker-goweb"
   on:
     branch: master
 
